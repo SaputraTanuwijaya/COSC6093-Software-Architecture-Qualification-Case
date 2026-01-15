@@ -3,11 +3,11 @@ TITLE Microservices & Design Patterns Launcher
 CLS
 
 ECHO ======================================================
-ECHO     SOFTWARE ARCHITECTURE QUALIFICATION AT25-1 
+ECHO    SOFTWARE ARCHITECTURE QUALIFICATION AT25-1 
 ECHO ======================================================
 ECHO.
 
-ECHO [1/5] Checking Docker...
+ECHO [1/6] Checking Docker...
 docker info >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
     ECHO [ERROR] Docker is NOT running! 
@@ -18,21 +18,60 @@ IF %ERRORLEVEL% NEQ 0 (
 ECHO [OK] Docker is active.
 
 ECHO.
-ECHO [2/5] Waking up Database...
+ECHO [2/6] Checking Dependencies (Auto-Install)...
+
+IF NOT EXIST "auth-service\node_modules" (
+    ECHO    - Installing Auth Service dependencies...
+    cd auth-service
+    call npm install --silent
+    cd ..
+) ELSE (
+    ECHO    - Auth Service is ready.
+)
+
+IF NOT EXIST "user-service\node_modules" (
+    ECHO    - Installing User Service dependencies...
+    cd user-service
+    call npm install --silent
+    cd ..
+) ELSE (
+    ECHO    - User Service is ready.
+)
+
+IF NOT EXIST "post-service\node_modules" (
+    ECHO    - Installing Post Service dependencies...
+    cd post-service
+    call npm install --silent
+    cd ..
+) ELSE (
+    ECHO    - Post Service is ready.
+)
+
+IF NOT EXIST "api-gateway\node_modules" (
+    ECHO    - Installing API Gateway dependencies...
+    cd api-gateway
+    call npm install --silent
+    cd ..
+) ELSE (
+    ECHO    - API Gateway is ready.
+)
+
+ECHO.
+ECHO [3/6] Waking up Database...
 docker-compose up -d
 ECHO [OK] Database signal sent.
 ECHO      Waiting 10s for Database to be ready...
 timeout /t 10 /nobreak >nul
 
 ECHO.
-ECHO [2.5/5] Creating Database Tables (Prisma Push)...
+ECHO [4/6] Creating Database Tables (Prisma Push)...
 cd auth-service
 call npx prisma db push
 cd ..
 ECHO [OK] Database Tables Created.
 
 ECHO.
-ECHO [3/5] Launching Microservices (Minimized)...
+ECHO [5/6] Launching Microservices (Minimized)...
 start /min "Auth Service" cmd /k "cd auth-service && npm run start:dev"
 start /min "User Service" cmd /k "cd user-service && npm run start:dev"
 start /min "Post Service" cmd /k "cd post-service && npm run start:dev"
@@ -40,7 +79,7 @@ start /min "API Gateway"  cmd /k "cd api-gateway  && npm run start:dev"
 ECHO [OK] Services are running in the background.
 
 ECHO.
-ECHO [4/5] Automating Design Patterns...
+ECHO [6/6] Automating Design Patterns...
 ECHO.
 ECHO ------------------------------------------------------
 ECHO    NOTE: The microservices are running minimized.
