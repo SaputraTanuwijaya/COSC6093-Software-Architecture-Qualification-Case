@@ -24,10 +24,11 @@ For those who prefer the manual or detailed explanation, read below:
 
 1. Checks if Docker is active.
 2. Wakes up the PostgreSQL Database container.
-3. Automatically creates the database tables (Prisma Push) - No manual setup needed.
-4. Launches all 4 Microservices (Auth, User, Post, Gateway) minimized in the taskbar.
-5. Runs the 3 Design Pattern cases sequentially in the main window.
-6. Opens the Swagger UI documentation in your default browser.
+3. Run npm install on all microservice.
+4. Automatically creates the database tables (Prisma Push) - No manual setup needed.
+5. Launches all 4 Microservices (Auth, User, Post, Gateway) minimized in the taskbar.
+6. Runs the 3 Design Pattern cases sequentially in the main window.
+7. Opens the Swagger UI documentation in your default browser.
 
 ## TROUBLESHOOTING
 
