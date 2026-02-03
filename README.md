@@ -41,3 +41,16 @@ For those who prefer the manual or detailed explanation, read below:
 
 - Node.js (Latest LTS recommended)
 - Docker Desktop
+
+## Project Notice
+
+This repository is published for **portfolio and educational viewing purposes only**.
+
+Copyright © 2026  
+Ownership of this project and its materials is shared with / belongs to  
+**Bina Nusantara University**, according to academic policy.
+
+Reuse, redistribution, or commercial use is **not permitted** without
+explicit permission from the copyright holder(s).
+
+## - Saputra Tanuwijaya ( AT )
