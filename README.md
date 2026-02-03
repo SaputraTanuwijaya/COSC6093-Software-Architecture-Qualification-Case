@@ -44,13 +44,16 @@ For those who prefer the manual or detailed explanation, read below:
 
 ## Project Notice
 
-This repository is published for **portfolio and educational viewing purposes only**.
+This project is an **independent implementation** created by me
+for learning and teaching purposes related to
+courses at **Bina Nusantara University**.
 
-Copyright © 2026  
-Ownership of this project and its materials is shared with / belongs to  
-**Bina Nusantara University**, according to academic policy.
+The problem scenario is inspired by an academic case.
+All source code, architecture, and implementation
+are my original work.
 
-Reuse, redistribution, or commercial use is **not permitted** without
-explicit permission from the copyright holder(s).
+This repository is public for **portfolio and educational viewing only**.
+Reuse for academic submission or grading purposes
+is **strongly discouraged**.
 
 ## - Saputra Tanuwijaya ( AT )
